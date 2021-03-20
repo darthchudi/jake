@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Jake the dog](https://i.pinimg.com/564x/35/5e/93/355e93dae3aac73a024d0211efd0e3ee.jpg)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Jake is a GraphQL server that provides weather information via https://openweathermap.org/api
