@@ -4,14 +4,15 @@ module Mutations
     RSpec.describe GraphqlController, type: :controller do 
         let (:email) {Faker::Internet.email}
         let (:password) {Faker::Internet.password(min_length: 10)}
-        let (:city) {"lagos"}
+        let (:city) {Faker::Hipster.word}
 
         it "should allow a user signup" do 
             post :execute, params: {query: query}
 
             result = JSON.parse(response.body)
 
-            # Todo: Add assertions on result (user and token)
+            expect(result["data"]["signup"]["user"]["id"]).to be_truthy 
+            expect(result["data"]["signup"]["token"]).to be_truthy 
         end
 
 
@@ -24,6 +25,7 @@ module Mutations
                         city: "#{city}"
                     }) {
                         user {
+                        id,
                         email
                         },
                         token
