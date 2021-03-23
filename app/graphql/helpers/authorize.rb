@@ -1,5 +1,5 @@
 module Helpers
-    class Authorize
+    module Authorize
         def ensure_authorized!
             raise GraphQL::ExecutionError.new("Authorization required") if context[:current_user].blank?
         end 

@@ -1,5 +1,5 @@
 module Queries 
-    class BaseQuery < GraphQL::Schema::Resolver 
+    class Base < GraphQL::Schema::Resolver 
         include Helpers::Authorize
     end 
 end 
