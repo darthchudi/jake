@@ -5,7 +5,8 @@ module Queries
         type Types::CityWeatherType, null: false 
 
         def resolve(city:)
-            result = ::GetWeather.call(city: city).weather
+            raise GraphQL::ExecutionError.new("Authentication required") if context[:current_user].blank?
+            result = ::GetWeather.call(city: context[:current_user].city).weather
         end 
     end 
 end 

@@ -3,7 +3,7 @@ class SignupUser
 
   def call
     user = User.create(email: context.email, city: context.city, password: context.password)
-    token = "random-token"
+    token = Auth.create_token user 
     
     context.user = user 
     context.token = token 
