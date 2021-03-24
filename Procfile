@@ -1,3 +1,3 @@
 web: bin/rails server 
 scheduler: bundle exec clockwork config/clock.rb
-worker:
+worker: bundle exec sidekiq
