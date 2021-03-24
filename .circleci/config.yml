@@ -17,12 +17,10 @@ jobs:
       - image: cimg/ruby:3.0.0-node
       - image: circleci/postgres:9.5-alpine
         environment:
-          POSTGRES_USER: jake
+          POSTGRES_USER: weather
           POSTGRES_DB: weather_test
           POSTGRES_PASSWORD: ""
     environment:
-      WEATHER_DATABASE_USER: jake
-      PGPASSWORD: ""
       RAILS_ENV: test
     steps:
       - checkout
