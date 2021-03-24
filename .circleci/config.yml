@@ -17,11 +17,12 @@ jobs:
       - image: cimg/ruby:3.0.0-node
         environment:
           RAILS_ENV: test
+          DATABASE_PASSWORD: OxzDkQo7+LLmHaDya8o=
       - image: postgres
         environment:
           POSTGRES_USER: weather
           POSTGRES_DB: weather_test
-          POSTGRES_PASSWORD: ""
+          POSTGRES_PASSWORD: OxzDkQo7+LLmHaDya8o=
     steps:
       - checkout
       - ruby/install-deps
