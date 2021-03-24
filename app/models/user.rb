@@ -1,4 +1,5 @@
 class User < ApplicationRecord
     has_secure_password
-    validates :email, :password, :city, presence: true
+    validates :password, presence: true, on: :create
+    validates :email, :city, presence: true
 end
