@@ -4,7 +4,7 @@ class WeatherSchema < GraphQL::Schema
 
   # Error safety net for encoding errors in GraphQL format 
   rescue_from(StandardError) do |message|
-    GraphQL::ExecutionError.new(message, extensions: {code: 'INTERNAL_SERVER_ERROR'})
+    GraphQL::ExecutionError.new message 
   end
 
   # Union and Interface Resolution
