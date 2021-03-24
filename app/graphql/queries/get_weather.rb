@@ -1,10 +1,11 @@
 module Queries 
     class GetWeather < Queries::Base
+        argument :city, String, required: true 
+
         type Types::CityWeatherType, null: false 
 
-        def resolve()
-            ensure_authorized! 
-            result = ::GetWeather.call(city: context[:current_user].city).weather
+        def resolve(city:)
+            result = ::GetWeather.call(city: city).weather
         end 
     end 
 end 
