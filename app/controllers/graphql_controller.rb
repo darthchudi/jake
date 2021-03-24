@@ -13,6 +13,8 @@ class GraphqlController < ApplicationController
     }
     result = WeatherSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
+  rescue JWT::DecodeError => e
+    render json: { errors: [{ message: "Invalid auth token: #{e.message}"}], data: {} }
   rescue => e
     raise e unless Rails.env.development?
     handle_error_in_development e
