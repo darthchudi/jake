@@ -1,7 +1,7 @@
 class OpenWeather
   include HTTParty
 
-  def get_city_weather(city)
+  def self.get(city)
     url = "#{ENV['WEATHER_API_URL']}?q=#{city}&appid=#{ENV['WEATHER_API_KEY']}"
     response = self.class.get(url).parsed_response 
   end 
@@ -11,10 +11,7 @@ class GetWeather
   include Interactor
 
   def call
-    # Todo: use a single instance
-    openWeather = OpenWeather.new()
-    
-    response = openWeather.get_city_weather context['city']
+    response = OpenWeather.get context['city']
 
     result = {
       lat: response['coord']['lat'],
