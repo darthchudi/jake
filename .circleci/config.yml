@@ -15,13 +15,13 @@ jobs:
     parallelism: 3
     docker:
       - image: cimg/ruby:3.0.0-node
-      - image: circleci/postgres:9.5-alpine
+        environment:
+          RAILS_ENV: test
+      - image: postgres
         environment:
           POSTGRES_USER: weather
           POSTGRES_DB: weather_test
           POSTGRES_PASSWORD: ""
-    environment:
-      RAILS_ENV: test
     steps:
       - checkout
       - ruby/install-deps
