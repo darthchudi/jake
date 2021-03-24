@@ -45,7 +45,7 @@ class GraphqlController < ApplicationController
 
     return nil if auth_header.blank?
 
-    token = auth_header.split(" ").last
+    token = auth_header.split(" ")[1]
 
     return nil if token.blank?
 
