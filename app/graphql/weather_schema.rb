@@ -2,6 +2,11 @@ class WeatherSchema < GraphQL::Schema
   mutation(Types::MutationType)
   query(Types::QueryType)
 
+  # Error safety net for encoding errors in GraphQL format 
+  rescue_from(StandardError) do |message|
+    GraphQL::ExecutionError.new(message, extensions: {code: 'INTERNAL_SERVER_ERROR'})
+  end
+
   # Union and Interface Resolution
   def self.resolve_type(abstract_type, obj, ctx)
     # TODO: Implement this function
