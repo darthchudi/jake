@@ -18,13 +18,8 @@ RSpec.describe SignupUser, type: :interactor do
   end
 
   context "when an existing email is provided" do
-    let!(:user) do 
-      User.create!(email: email, password: password, city: city) 
-    end
-
     it "should return an error" do 
-      expect(context).to be_a_failure
-      puts "#{context.inspect}"
+      expect{described_class.call(email: context.user.email, password: context.user.password, city: context.user.city)}.to raise_error("Validation failed: Email has already been taken")
     end 
   end
 end
