@@ -27,7 +27,6 @@ module Mutations
 
                 expect(result["data"]["signup"]).to eq nil
                 expect(result["errors"][0]["message"]).to eq "Validation failed: Email has already been taken"
-                puts "#{result.inspect}"
             end 
         end 
 
