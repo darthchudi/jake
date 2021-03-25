@@ -17,7 +17,7 @@ jobs:
       - image: cimg/ruby:3.0.0-node
         environment:
           RAILS_ENV: test
-          DATABASE_PASSWORD: OxzDkQo7+LLmHaDya8o=
+          DATABASE_URL: postgres://weather:OxzDkQo7+LLmHaDya8o=@localhost:5432/weather_test
       - image: postgres
         environment:
           POSTGRES_USER: weather

@@ -9,5 +9,7 @@ module Clockwork
     SendDailyWeatherUpdateEmailsJob.perform_later
   end
 
+  # every(10.minutes, 'frequent.job')
+
   every(1.day, 'midnight.job', :at => '00:00')
 end
