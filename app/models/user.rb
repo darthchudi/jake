@@ -3,5 +3,4 @@ class User < ApplicationRecord
     validates_uniqueness_of :email  
     validates :email, :city, presence: true
     validates :password, presence: true, on: :create
-    
 end

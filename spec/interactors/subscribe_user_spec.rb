@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe SubscribeUser, type: :interactor do
   let (:email) {Faker::Internet.email}
