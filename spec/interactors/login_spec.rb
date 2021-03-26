@@ -7,7 +7,7 @@ RSpec.describe LoginUser, type: :interactor do
 
   subject(:context) do
     User.create!(email: email, password: password, city: city) 
-    described_class.call(email: email, password: password)
+    described_class.call!(email: email, password: password)
   end
 
   context "when a valid password is provided" do
@@ -20,7 +20,7 @@ RSpec.describe LoginUser, type: :interactor do
 
   context "when an invalid password is provided" do
     it "should return an error" do 
-      expect{described_class.call(email: email, password: Faker::Internet.password(min_length: 10))}.to raise_error("Invalid login credentials")
+      expect{described_class.call!(email: email, password: Faker::Internet.password(min_length: 10))}.to raise_error("Invalid login credentials")
     end 
   end
 end

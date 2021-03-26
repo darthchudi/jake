@@ -8,8 +8,8 @@ module Mutations
 
         # We need a subscribed user before we can unsubscribe
         let!(:data) do 
-            result = ::SignupUser.call(email: email, password: password, city: city)
-            subscribedUser = ::SubscribeUser.call(email: result.user.email).user 
+            result = ::SignupUser.call!(email: email, password: password, city: city)
+            subscribedUser = ::SubscribeUser.call!(email: result.user.email).user 
             OpenStruct.new(token: result.token, user: subscribedUser)
         end 
 

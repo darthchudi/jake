@@ -4,7 +4,7 @@ module Mutations
         
         def resolve 
             ensure_authorized!
-            result = ::UnsubscribeUser.call(email: current_user.email)
+            result = ::UnsubscribeUser.call!(email: current_user.email)
             {user: result.user}
         end
     end 

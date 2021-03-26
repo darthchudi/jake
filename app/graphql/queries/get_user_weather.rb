@@ -4,7 +4,7 @@ module Queries
 
         def resolve
             ensure_authorized! 
-            result = ::GetWeather.call(city: current_user.city).weather
+            result = ::GetWeather.call!(city: current_user.city).weather
         end 
     end 
 end 

@@ -7,7 +7,7 @@ module Mutations
         field :token, String, null: false
 
         def resolve(email:, password:)
-            result = ::LoginUser.call(email: email, password: password)
+            result = ::LoginUser.call!(email: email, password: password)
             {user: result.user, token: result.token}
         end 
     end 

@@ -7,7 +7,7 @@ RSpec.describe SubscribeUser, type: :interactor do
 
   subject(:context) do
     User.create!(email: email, password: password, city: city) 
-    described_class.call(email: email)
+    described_class.call!(email: email)
   end
 
   context "when it is given a user's email" do

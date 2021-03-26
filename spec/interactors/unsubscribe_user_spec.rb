@@ -8,7 +8,7 @@ RSpec.describe UnsubscribeUser, type: :interactor do
   subject(:context) do
     user = User.create!(email: email, password: password, city: city) 
     user.update!(is_subscribed: true)
-    described_class.call(email: email)
+    described_class.call!(email: email)
   end
 
   context "when it is given a user's email" do

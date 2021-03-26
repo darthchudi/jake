@@ -7,7 +7,7 @@ module Mutations
         let (:city) {Faker::Hipster.word}
 
         let!(:data) do 
-            ::SignupUser.call(email: email, password: password, city: city)
+            ::SignupUser.call!(email: email, password: password, city: city)
         end 
 
         context "when an auth token is sent in the request" do 

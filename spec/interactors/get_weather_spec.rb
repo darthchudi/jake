@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe GetWeather, type: :interactor do
   subject(:context) do 
-    described_class.call(city: city) 
+    described_class.call!(city: city) 
   end 
   
   let (:city) {["madrid", "london", "lagos", "barcelona"].sample}

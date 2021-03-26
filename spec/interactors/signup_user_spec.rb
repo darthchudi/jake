@@ -6,7 +6,7 @@ RSpec.describe SignupUser, type: :interactor do
   let (:city) {Faker::Hipster.word}
 
   subject(:context) do
-    described_class.call(email: email, password: password, city: city)
+    described_class.call!(email: email, password: password, city: city)
   end
 
   context "when a valid email is provided" do
@@ -19,7 +19,7 @@ RSpec.describe SignupUser, type: :interactor do
 
   context "when an existing email is provided" do
     it "should return an error" do 
-      expect{described_class.call(email: context.user.email, password: context.user.password, city: context.user.city)}.to raise_error("Validation failed: Email has already been taken")
+      expect{described_class.call!(email: context.user.email, password: context.user.password, city: context.user.city)}.to raise_error("Validation failed: Email has already been taken")
     end 
   end
 end

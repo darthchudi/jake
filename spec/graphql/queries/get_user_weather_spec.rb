@@ -7,7 +7,7 @@ module Queries
         let (:city) {"barcelona"}
 
         let!(:data) do 
-            ::SignupUser.call(email: email, password: password, city: city)
+            ::SignupUser.call!(email: email, password: password, city: city)
         end 
 
         context "when an auth token is sent in the request" do 
