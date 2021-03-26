@@ -13,6 +13,8 @@ class GetWeather
   def call
     response = OpenWeather.get_weather_for_city context['city']
 
+    context.fail!(error: "failed to get city weather: #{response["message"]}") if response["cod"] != 200
+
     result = {
       lat: response['coord']['lat'],
       lng: response['coord']['lon'], 
